@@ -1,0 +1,2 @@
+# CustomKeyMap
+autohotkeyのスクリプトです。
