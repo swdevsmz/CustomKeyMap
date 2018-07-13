@@ -1,0 +1,1 @@
+reg delete "HKEY_CURRENT_USER\Keyboard Layout" /v "Scancode Map"
