@@ -24,7 +24,8 @@ vk1D::IME_SET(0)
 vk1C::IME_SET(1)
 
 ;–³•ÏŠ·+SHIFT¨–³•ÏŠ·
-+vk1D::Send,{vk1D}
+;+vk1D::Send,{vk1D}
++Space::Send,{vk1D}
 
 ;Alt+P¨PrintScreen
 !p::Send,{PrintScreen}
