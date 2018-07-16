@@ -23,50 +23,50 @@ vk1D::IME_SET(0)
 ;変換→IME ON
 vk1C::IME_SET(1)
 
-;無変換+SHIFT→無変換
-;+vk1D::Send,{vk1D}
-+Space::Send,{vk1D}
+;Ctrl + SPACE = 無変換
+^Space::Send,{vk1D}
 
-;Alt+P→PrintScreen
+;Alt + P = PrintScreen
 !p::Send,{PrintScreen}
 
-;Ctrl+Alt+P→PrintScreen
+
+;Ctrl + Alt + P = PrintScreen
 ^!p::Send,!{PrintScreen}
 
-;半角/全角→Ctrl
-vkF3::Send,{Ctrl}
-vkF4::Send,{Ctrl}
+;半角/全角 = Ctrl (HHKB用)
+;vkF3::Send,{Ctrl}
+;vkF4::Send,{Ctrl}
 
-;Ctrl+↑→PageUp
+;Ctrl + ↑ = PageUp
 ^Up::Send,{PgUP}
 
 
-;Ctrl+↓→PageDown
+;Ctrl + ↓ = PageDown
 ^Down::Send,{PgDn}
 
-
-;Ctrl+左→HOME
+;Ctrl + 左 = HOME
 ^Left::Send,{HOME}
 ^+Left::Send,+{HOME}
 
-;Ctrl+→→End
+;Ctrl + → = End
 ^Right::Send,{End}
 ^+Right::Send,+{End}
 
-;Ctrl+BS→DEL
+;Ctrl + BS = DEL
 ^Bs::Send,{Del}
 
-;右Alt→アプリケーションキー
+;右Alt = アプリケーションキー
 RAlt::Send,{AppsKey}
 
-;Excelセル移動
+
+;Win+Alt+カーソルキー = Excelシートの移動
 #!Right::Send,^{PgDn}
 #!Left::Send,^{PgUp}
 #!Up::Send,^{PgUp}
 #!Down::Send,^{PgDn}
 
 
-;Ctrl+数字→F数字p
+;Ctrl + 数字 = F数字
 ^1::Send,{F1}
 ^2::Send,{F2}
 ^3::Send,{F3}
@@ -81,6 +81,7 @@ RAlt::Send,{AppsKey}
 $^^::Send,{F12}
 
 
+;カーソルキーの割り当て
 ^j::Send,{Left}
 ^k::Send,{Down}
 ^i::Send,{Up}
@@ -91,3 +92,17 @@ $^^::Send,{F12}
 ^+o::Send,+{End}
 ^m::Send,{PgUp}
 ^.::Send,{PgDn}
+
+
+;PgUp,PgDnの無効化
+;https://qiita.com/standard-software/items/07655d7919b70aa09ab1#pageup--pagedown-%E3%82%AD%E3%83%BC%E3%82%92-%E5%B7%A6%E3%82%AD%E3%83%BC--%E5%8F%B3%E3%82%AD%E3%83%BC-%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B
+PgUp::Send {Left} 
+PgDn::Send {Right} 
+^PgUp::Send ^{Left} 
+^PgDn::Send ^{Right} 
++PgUp::Send +{Left} 
++PgDn::Send +{Right} 
+!PgUp::Send !{Left} 
+!PgDn::Send !{Right} 
+#PgUp::Send #{Left} 
+#PgDn::Send #{Right} 
